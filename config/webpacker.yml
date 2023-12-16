@@ -8,7 +8,13 @@ default: &default
   cache_path: tmp/cache/webpacker
   check_yarn_integrity: false
   webpack_compile_output: true
-
+  node:
+    # Some options here, e.g., set `dgram` to `empty`
+    dgram: empty
+    fs: empty
+    net: empty
+    tls: empty
+    child_process: empty
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
   resolved_paths: []
@@ -71,10 +77,9 @@ development:
     quiet: false
     pretty: false
     headers:
-      'Access-Control-Allow-Origin': '*'
+      "Access-Control-Allow-Origin": "*"
     watch_options:
-      ignored: '**/node_modules/**'
-
+      ignored: "**/node_modules/**"
 
 test:
   <<: *default
